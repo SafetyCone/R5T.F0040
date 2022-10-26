@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using R5T.T0132;
 
@@ -34,6 +35,20 @@ namespace R5T.F0040.F000
 				path);
 
 			return projectDirectoryRelativeFilePath;
+		}
+
+		/// <inheritdoc cref="GetProjectDirectoryRelativePath(string, string)"/>
+		public Dictionary<string, string> GetProjectDirectoryRelativePaths(
+			string projectFilePath,
+			IEnumerable<string> paths)
+		{
+			var projectDirectoryPath = this.GetProjectDirectoryPath(projectFilePath);
+
+			var projectDirectoryRelativePathsByPath = Instances.PathOperator.GetRelativePaths(
+				projectDirectoryPath,
+				paths);
+
+			return projectDirectoryRelativePathsByPath;
 		}
 
 		/// <summary>
