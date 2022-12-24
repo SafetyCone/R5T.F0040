@@ -58,9 +58,42 @@ namespace R5T.F0040
         {
             var output = this.GetOutputBinariesDirectoryFilePathForProject(
                 projectFilePath,
-                projectName => $"{projectName}.xml");
+                this.GetDocumentationFileName_FromProjectName);
 
             return output;
+        }
+
+        public string GetDocumentationFilePath_ForAssemblyFilePath(string assemblyFilePath)
+        {
+            var documentationFileName = this.GetDocumentationFileName_FromAssemblyFilePath(assemblyFilePath);
+
+            var directoryPath = F0002.PathOperator.Instance.GetParentDirectoryPath_ForFile(assemblyFilePath);
+
+            var documentationFilePath = F0002.PathOperator.Instance.GetFilePath(
+                directoryPath,
+                documentationFileName);
+
+            return documentationFilePath;
+        }
+
+        public string GetDocumentationFileName_FromProjectName(string projectName)
+        {
+            var documentationFileName = F0000.FileNameOperator.Instance.GetFileName(
+                projectName,
+                F0000.FileExtensions.Instance.Xml);
+
+            return documentationFileName;
+        }
+
+        public string GetDocumentationFileName_FromAssemblyFilePath(string assemblyFilePath)
+        {
+            var assemblyName = F0002.PathOperator.Instance.GetFileNameStem(assemblyFilePath);
+
+            var documentationFileName = F0000.FileNameOperator.Instance.GetFileName(
+                assemblyName,
+                F0000.FileExtensions.Instance.Xml);
+
+            return documentationFileName;
         }
 
         /// <summary>
