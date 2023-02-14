@@ -96,6 +96,13 @@ namespace R5T.F0040
             return documentationFileName;
         }
 
+        public string GetDocumentationFileName_FromProjectFilePath(string projectFilePath)
+        {
+            // Same as assembly file name.
+            var output = this.GetDocumentationFileName_FromAssemblyFilePath(projectFilePath);
+            return output;
+        }
+
         /// <summary>
         /// Gets the output assembly file path for a project file path (in the output directory).
         /// </summary>
