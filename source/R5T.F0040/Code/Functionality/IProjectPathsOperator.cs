@@ -11,6 +11,8 @@ namespace R5T.F0040
 	{
         /// <summary>
         /// Gets the output directory file path for a project file path and a file name based on the project name.
+        /// <para>Uses the bin/Debug/ directory, loads the target framework from the project file itself if it exists.</para>
+        /// <para>Else, it uses the <see cref="IProjectDirectoryRelativePaths.DefaultOutputBinariesDirectoryRelativePath"/> directory.</para>
         /// </summary>
         public string GetOutputBinariesDirectoryFilePathForProject(
             string projectFilePath,
@@ -76,6 +78,9 @@ namespace R5T.F0040
             return documentationFilePath;
         }
 
+        /// <summary>
+        /// Assumes that the documentation file name for a project is just the project name with an XML file extension.
+        /// </summary>
         public string GetDocumentationFileName_FromProjectName(string projectName)
         {
             var documentationFileName = F0000.FileNameOperator.Instance.GetFileName(

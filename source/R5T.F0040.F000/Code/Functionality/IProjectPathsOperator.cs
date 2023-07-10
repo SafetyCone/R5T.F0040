@@ -54,7 +54,6 @@ namespace R5T.F0040.F000
 		/// <summary>
 		/// For a project directory relative path (either a directory or file path), combine the relative path and the project directory path to get the directory or file path.
 		/// </summary>
-		/// <param name="path">Either a directory or file path.</param>
 		public string GetPath_ForProjectDirectoryRelativePath(
 			string projectFilePath,
 			string projectDirectoryRelativePath)
