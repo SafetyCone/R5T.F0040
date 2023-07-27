@@ -54,7 +54,7 @@ namespace R5T.F0040
         }
 
         /// <summary>
-        /// Gets the output documentation XML file path for a project file path (in the output directory).
+        /// Gets the output documentation XML file path for a project file path (in the bin/Debug/ output directory).
         /// </summary>
         public string GetDocumentationFilePathForProjectFilePath(string projectFilePath)
         {
