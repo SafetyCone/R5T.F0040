@@ -83,7 +83,7 @@ namespace R5T.F0040
         /// </summary>
         public string GetDocumentationFileName_FromProjectName(string projectName)
         {
-            var documentationFileName = F0000.FileNameOperator.Instance.GetFileName(
+            var documentationFileName = F0000.FileNameOperator.Instance.Get_FileName(
                 projectName,
                 F0000.FileExtensions.Instance.Xml);
 
@@ -94,7 +94,7 @@ namespace R5T.F0040
         {
             var assemblyName = F0002.PathOperator.Instance.GetFileNameStem(assemblyFilePath);
 
-            var documentationFileName = F0000.FileNameOperator.Instance.GetFileName(
+            var documentationFileName = F0000.FileNameOperator.Instance.Get_FileName(
                 assemblyName,
                 F0000.FileExtensions.Instance.Xml);
 
