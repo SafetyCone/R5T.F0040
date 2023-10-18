@@ -18,7 +18,7 @@ namespace R5T.F0040
             string projectFilePath,
             Func<string, string> getFileNameFromProjectName)
         {
-            var projectFileExists = F0000.FileSystemOperator.Instance.FileExists(projectFilePath);
+            var projectFileExists = F0000.FileSystemOperator.Instance.Exists_File(projectFilePath);
 
             var projectDirectoryPath = this.GetProjectDirectoryPath(projectFilePath);
 
