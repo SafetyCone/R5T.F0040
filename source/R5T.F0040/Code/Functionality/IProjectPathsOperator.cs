@@ -26,7 +26,7 @@ namespace R5T.F0040
             {
                 var hasTargetFramework = F0020.ProjectFileOperator.Instance.HasTargetFramework(projectFilePath);
 
-                var targetFramework = hasTargetFramework.ResultOrIfNotFound(
+                var targetFramework = hasTargetFramework.Get_Result_OrIfNotFound(
                     F0020.TargetFrameworkMonikerStrings.Instance.Default);
 
                 var binariesOutputDirectoryRelativePath = $@"bin\Debug\{targetFramework}\";
@@ -38,15 +38,15 @@ namespace R5T.F0040
                 : Instances.ProjectDirectoryRelativePaths.DefaultOutputBinariesDirectoryRelativePath
                 ;
 
-            var binariesDirectoryPath = Instances.PathOperator.GetDirectoryPath(
+            var binariesDirectoryPath = Instances.PathOperator.Get_DirectoryPath(
                 projectDirectoryPath,
                 binariesOutputDirectoryRelativePath);
 
-            var projectName = Instances.PathOperator.GetFileNameStem(projectFilePath);
+            var projectName = Instances.PathOperator.Get_FileNameStem(projectFilePath);
 
             var fileName = getFileNameFromProjectName(projectName);
 
-            var output = Instances.PathOperator.GetFilePath(
+            var output = Instances.PathOperator.Get_FilePath(
                 binariesDirectoryPath,
                 fileName);
 
@@ -69,9 +69,9 @@ namespace R5T.F0040
         {
             var documentationFileName = this.GetDocumentationFileName_FromAssemblyFilePath(assemblyFilePath);
 
-            var directoryPath = F0002.PathOperator.Instance.GetParentDirectoryPath_ForFile(assemblyFilePath);
+            var directoryPath = F0002.PathOperator.Instance.Get_ParentDirectoryPath_ForFile(assemblyFilePath);
 
-            var documentationFilePath = F0002.PathOperator.Instance.GetFilePath(
+            var documentationFilePath = F0002.PathOperator.Instance.Get_FilePath(
                 directoryPath,
                 documentationFileName);
 
@@ -92,7 +92,7 @@ namespace R5T.F0040
 
         public string GetDocumentationFileName_FromAssemblyFilePath(string assemblyFilePath)
         {
-            var assemblyName = F0002.PathOperator.Instance.GetFileNameStem(assemblyFilePath);
+            var assemblyName = F0002.PathOperator.Instance.Get_FileNameStem(assemblyFilePath);
 
             var documentationFileName = F0000.FileNameOperator.Instance.Get_FileName(
                 assemblyName,

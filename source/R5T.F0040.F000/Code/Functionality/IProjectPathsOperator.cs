@@ -15,7 +15,7 @@ namespace R5T.F0040.F000
 		/// </summary>
 		public string GetProjectDirectoryPath(string projectFilePath)
 		{
-			var projectDirectoryPath = Instances.PathOperator.GetParentDirectoryPath_ForFile(projectFilePath);
+			var projectDirectoryPath = Instances.PathOperator.Get_ParentDirectoryPath_ForFile(projectFilePath);
 			return projectDirectoryPath;
 		}
 
@@ -30,7 +30,7 @@ namespace R5T.F0040.F000
 		{
 			var projectDirectoryPath = this.GetProjectDirectoryPath(projectFilePath);
 
-			var projectDirectoryRelativeFilePath = Instances.PathOperator.GetRelativePath(
+			var projectDirectoryRelativeFilePath = Instances.PathOperator.Get_RelativePath(
 				projectDirectoryPath,
 				path);
 
@@ -44,7 +44,7 @@ namespace R5T.F0040.F000
 		{
 			var projectDirectoryPath = this.GetProjectDirectoryPath(projectFilePath);
 
-			var projectDirectoryRelativePathsByPath = Instances.PathOperator.GetRelativePaths(
+			var projectDirectoryRelativePathsByPath = Instances.PathOperator.Get_RelativePaths(
 				projectDirectoryPath,
 				paths);
 
@@ -69,7 +69,7 @@ namespace R5T.F0040.F000
 
 		public string GetProjectFileName(string projectFilePath)
 		{
-			var projectFileName = Instances.PathOperator.GetFileName(projectFilePath);
+			var projectFileName = Instances.PathOperator.Get_FileName(projectFilePath);
 			return projectFileName;
 		}
 
@@ -77,7 +77,7 @@ namespace R5T.F0040.F000
 		{
 			var projectFileName = this.GetProjectFileName(projectFilePath);
 
-			var projectName = F0000.FileNameOperator.Instance.GetFileNameStem(projectFileName);
+			var projectName = F0000.FileNameOperator.Instance.Get_FileNameStem(projectFileName);
 			return projectName;
 		}
 	}
