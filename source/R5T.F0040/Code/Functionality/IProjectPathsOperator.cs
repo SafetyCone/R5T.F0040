@@ -69,9 +69,9 @@ namespace R5T.F0040
         {
             var documentationFileName = this.GetDocumentationFileName_FromAssemblyFilePath(assemblyFilePath);
 
-            var directoryPath = F0002.PathOperator.Instance.Get_ParentDirectoryPath_ForFile(assemblyFilePath);
+            var directoryPath = Instances.PathOperator.Get_ParentDirectoryPath_ForFile(assemblyFilePath);
 
-            var documentationFilePath = F0002.PathOperator.Instance.Get_FilePath(
+            var documentationFilePath = Instances.PathOperator.Get_FilePath(
                 directoryPath,
                 documentationFileName);
 
@@ -92,7 +92,7 @@ namespace R5T.F0040
 
         public string GetDocumentationFileName_FromAssemblyFilePath(string assemblyFilePath)
         {
-            var assemblyName = F0002.PathOperator.Instance.Get_FileNameStem(assemblyFilePath);
+            var assemblyName = Instances.PathOperator.Get_FileNameStem(assemblyFilePath);
 
             var documentationFileName = F0000.FileNameOperator.Instance.Get_FileName(
                 assemblyName,

@@ -54,7 +54,7 @@ namespace R5T.F0040.F000
 		/// <summary>
 		/// For a project directory relative path (either a directory or file path), combine the relative path and the project directory path to get the directory or file path.
 		/// </summary>
-		public string GetPath_ForProjectDirectoryRelativePath(
+		public string Get_Path_ForProjectDirectoryRelativePath(
 			string projectFilePath,
 			string projectDirectoryRelativePath)
         {
@@ -77,7 +77,7 @@ namespace R5T.F0040.F000
 		{
 			var projectFileName = this.GetProjectFileName(projectFilePath);
 
-			var projectName = F0000.FileNameOperator.Instance.Get_FileNameStem(projectFileName);
+			var projectName = Instances.FileNameOperator.Get_FileNameStem(projectFileName);
 			return projectName;
 		}
 	}
