@@ -9,11 +9,24 @@ namespace R5T.F0040.F000
 	[FunctionalityMarker]
 	public partial interface IProjectPathsOperator : IFunctionalityMarker
 	{
-		/// <summary>
-		/// Gets the project directory path from the project file path.
-		/// <inheritdoc cref="Documentation.ProjectDirectory"/>
-		/// </summary>
-		public string GetProjectDirectoryPath(string projectFilePath)
+        public string Get_ProjectFilePath(
+            string projectDirectoryPath,
+            string projectName)
+        {
+            var projectFileName = Instances.ProjectFileNameOperator.Get_ProjectFileName_FromProjectName(projectName);
+
+            var projectFilePath = Instances.PathOperator.Get_FilePath(
+                projectDirectoryPath,
+                projectFileName);
+
+            return projectFilePath;
+        }
+
+        /// <summary>
+        /// Gets the project directory path from the project file path.
+        /// <inheritdoc cref="Documentation.ProjectDirectory"/>
+        /// </summary>
+        public string GetProjectDirectoryPath(string projectFilePath)
 		{
 			var projectDirectoryPath = Instances.PathOperator.Get_ParentDirectoryPath_ForFile(projectFilePath);
 			return projectDirectoryPath;
