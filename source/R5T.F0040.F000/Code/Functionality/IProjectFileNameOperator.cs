@@ -18,7 +18,7 @@ namespace R5T.F0040.F000
         public string Get_ProjectFileName_FromProjectName(string projectName)
         {
             var projectFileNameStem = this.Get_ProjectFileNameStem_FromProjectName(projectName);
-            var projectFileExtension = Instances.FileExtensions.CSharpProjectFile;
+            var projectFileExtension = Instances.FileExtensions.CSharp_ProjectFile;
 
             var output = Instances.FileExtensionOperator.Get_FileName(projectFileNameStem, projectFileExtension);
             return output;

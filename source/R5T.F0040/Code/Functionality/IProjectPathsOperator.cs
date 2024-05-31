@@ -18,7 +18,7 @@ namespace R5T.F0040
             string projectFilePath,
             Func<string, string> getFileNameFromProjectName)
         {
-            var projectFileExists = F0000.FileSystemOperator.Instance.Exists_File(projectFilePath);
+            var projectFileExists = Instances.FileSystemOperator.Exists_File(projectFilePath);
 
             var projectDirectoryPath = this.GetProjectDirectoryPath(projectFilePath);
 
@@ -83,9 +83,9 @@ namespace R5T.F0040
         /// </summary>
         public string GetDocumentationFileName_FromProjectName(string projectName)
         {
-            var documentationFileName = F0000.FileNameOperator.Instance.Get_FileName(
+            var documentationFileName = Instances.FileNameOperator.Get_FileName(
                 projectName,
-                F0000.FileExtensions.Instance.Xml);
+                Instances.FileExtensions.Xml);
 
             return documentationFileName;
         }
@@ -94,9 +94,9 @@ namespace R5T.F0040
         {
             var assemblyName = Instances.PathOperator.Get_FileNameStem(assemblyFilePath);
 
-            var documentationFileName = F0000.FileNameOperator.Instance.Get_FileName(
+            var documentationFileName = Instances.FileNameOperator.Get_FileName(
                 assemblyName,
-                F0000.FileExtensions.Instance.Xml);
+                Instances.FileExtensions.Xml);
 
             return documentationFileName;
         }
